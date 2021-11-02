@@ -1,7 +1,8 @@
 const housesContainer = document.querySelector('#houses-container')
 const form = document.querySelector('form')
 
-const baseURL = `http://localhost:4004/api/houses`
+const baseURL = `http://localhost:5050/api/houses`
+// 
 
 const housesCallback = ({ data: houses }) => displayHouses(houses)
 const errCallback = err => console.log(err)
@@ -20,7 +21,7 @@ function submitHandler(e) {
 
     let bodyObj = {
         address: address.value,
-        price: price.value, 
+        price: price.value,
         imageURL: imageURL.value
     }
 
@@ -44,10 +45,11 @@ function createHouseCard(house) {
     </div>
     <button onclick="deleteHouse(${house.id})">delete</button>
     `
-
+// "minus" is an argument passed in as a string, goes to line 13
 
     housesContainer.appendChild(houseCard)
 }
+
 
 function displayHouses(arr) {
     housesContainer.innerHTML = ``
